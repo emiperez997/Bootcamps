@@ -5,6 +5,7 @@ import { User } from 'src/types/User';
 @Injectable()
 export class AuthService {
   testUser: User;
+  users: User[] = [];
 
   constructor(private readonly jwtService: JwtService) {
     this.testUser = {
@@ -28,12 +29,16 @@ export class AuthService {
   login(user: User) {
     const payload = {
       username: user.username,
-      sub: user.id,
+      id: user.id,
     };
 
     return {
       // Firmar el token
       access_token: this.jwtService.sign(payload),
     };
+  }
+
+  register(user: User) {
+    this.users.push(user);
   }
 }

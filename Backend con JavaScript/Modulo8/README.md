@@ -348,3 +348,110 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 }
 ```
+
+> [!TIP]
+> El error "Delete CR" se resuele modificando el `.eslint.js` agregando el `*` en el campo `ignorePatterns`
+
+12. Agregamos nuestra estrategia al módulo (auth.module.ts)
+
+```typescript
+import { Module } from "@nestjs/common";
+import { PassportModule } from "@nestjs/passport";
+import { AuthService } from "./auth.service";
+import { LocalStrategy } from "./strategies/local.strategy";
+import { AuthController } from "./auth.controller";
+import { JwtModule } from "@nestjs/jwt";
+import { JwtStrategy } from "./strategies/jwt.strategy";
+
+@Module({
+  imports: [
+    PassportModule,
+    JwtModule.register({
+      secret: "secret",
+      signOptions: { expiresIn: "1h" },
+    }),
+  ],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
+  controllers: [AuthController],
+  exports: [AuthService],
+})
+export class AuthModule {}
+```
+
+13. Creamos nuestro guard (jwt-auth.guard.ts)
+
+```typescript
+import { Injectable } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
+
+@Injectable()
+export class JwtAuthGuard extends AuthGuard("jwt") {}
+```
+
+14. Protegemos nuestras rutas (auth.controller.ts)
+
+```typescript
+import { Controller, Get, Post, Request, UseGuards } from "@nestjs/common";
+import { LocalAuthGuard } from "./guards/local-auth.guard";
+import { AuthService } from "./auth.service";
+import { JwtAuthGuard } from "./guards/jwt-auth.guard";
+
+@Controller("/auth")
+export class AuthController {
+  constructor(private readonly authService: AuthService) {}
+
+  @UseGuards(LocalAuthGuard)
+  @Post("/login")
+  async login(@Request() req: any) {
+    // return req.user;
+    return this.authService.login(req.user);
+  }
+
+  // Esto en realidad deberia ir a otra entidad
+  @UseGuards(JwtAuthGuard)
+  @Get("/profile")
+  getProfile(@Request() req: any) {
+    return req.user;
+  }
+}
+```
+
+- Para probar esto desde Postman podemos hacerlo de dos formas
+  - Desde la pestaña de `Authorization` ponemos la opción `Bearer Token` y Token en el input que nos muestra
+  - En el header ponemos la opción `Authorization` y el token en el input del header, precedido de la palabra `Bearer`. Ejemplo: `Authorization: Bearer <token>`
+
+## bcrypt
+
+- Instalación
+
+```bash
+npm install bcrypt
+pnpm add bcrypt
+yarn add bcrypt
+```
+
+- Usando bcrypt
+
+```typescript
+const saltRounds: number = 10;
+
+const hash = await bcrypt.hash(password, saltRounds);
+```
+
+## Tarea
+
+### Parte 1
+
+Queremos modificar la aplicación que venimos creando para que la
+información de los usuarios se traiga desde una base de datos y no este
+hardcodeada en nuestro código. Tenemos que poder:
+
+- Crear usuarios
+- Iniciar sesión
+- Obtener la información del usuario que inicio sesión
+
+### Parte 2
+
+Basándonos en el ejercicio que hicimos, borremos todos los usuarios y
+modifiquemos nuestro código para que todos los nuevos que se creen
+tengan su contraseña hasheada.

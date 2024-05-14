@@ -4,7 +4,7 @@
 
 - **Fecha de inicio:** 03/04/2024
 - **Plataforma:** Código Facilito
-- **Fecha de finalización (estimada):** 30/04/2024
+- **Fecha de finalización (estimada):** 31/05/2024
 
 ## Progreso
 
@@ -28,7 +28,7 @@
   - [ x ] Bases de Datos No Relacionales - Parte 2
 - [ ] **Módulo 8:** Auth y seguridad
   - [ x ] Auth y Seguridad - Parte 1
-  - [ ] Auth y Seguridad - Parte 2
+  - [ x ] Auth y Seguridad - Parte 2
 - [ ] **Módulo 9:** Manejo de errores, validación de datos y unit testing
   - [ ] Manejo de Errores, Validación de Datos y Unit Testing
 - [ ] **Módulo 10:** Conceptos avanzados de bases de datos
@@ -36,7 +36,7 @@
 - [ ] **Módulo 11:** Sockets y comunicación en tiempo real
   - [ ] Sockets y Comunicación en Tiempo Real
 - [ ] **Módulo 12:** Webhooks y eventos
-  - [ ] Webhoos y eventos
+  - [ ] Webhooks y eventos
 - [ ] **Módulo 13:** Cache y performance en el backend
   - [ ] Caché y Performance
 - [ ] **Módulo 14:** Documentación y Comunicación
