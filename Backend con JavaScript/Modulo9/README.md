@@ -98,3 +98,95 @@ class CustomError extends Error {
   // Metodos
 }
 ```
+
+**Exception Filters en NestJS**
+Proporcionan una manera flexible de manejar errores permitiendo una respuesta personalizada y consistente en toda la aplicación.
+
+- **Captura las excepciones:** Interceptan excepciones lanzadas en el contexto de una petición HTTP
+- **Personalización:** Permiten personalizar la respuesta de error que se devuelve a la cliente
+- **Flexibilidad:** Pueden aplicarse a nivel de método, controlador o globalmente
+
+```typescript
+// app.module.ts
+import { ExceptionFilter, Catch, ArgumentsHost } from "@nestjs/common";
+
+@Catch()
+export class CustomExceptionFilter implements ExceptionFilter {
+  catch(exception: HttpException, host: ArgumentsHost) {
+    // host.switchHttp() -> Obtiene el contexto de la petición HTTP
+    const ctx = host.switchToHttp();
+    // ctx.getResponse() -> Obtiene el contexto de la respuesta HTTP
+    const response = ctx.getResponse();
+    // ctx.getRequest() -> Obtiene el contexto de la petición HTTP
+    const request = ctx.getRequest();
+    // exception.getStatus() -> Obtiene el código de estado HTTP
+    const statusCode = exception.getStatus();
+    const message = exception.getResponse();
+
+    response.status(status).json({
+      statusCode,
+      message,
+    });
+
+    return exception;
+  }
+}
+
+// app.controller.ts
+import { Controller, Get, Post, Body, HttpException } from "@nestjs/common";
+import { CustomExceptionFilter } from "./custom-exception.filter";
+
+@Controller()
+export class AppController {
+  constructor(private readonly customExceptionFilter: CustomExceptionFilter) {}
+
+  @Get()
+  getHello(): string {
+    throw new HttpException("Error de prueba", 400);
+  }
+
+  @Post()
+  createUser(@Body() userData: any): any {
+    throw new HttpException("Error de prueba", 400);
+  }
+}
+```
+
+**Bonus: Loggin Libraries**
+
+- [Winston](https://github.com/winstonjs/winston)
+- [Bunyan](https://github.com/trentm/node-bunyan)
+- [Pino](https://github.com/pinojs/pino)
+- [Log4js](https://github.com/log4js-node/log4js-node)
+- [Morgan](https://github.com/expressjs/morgan)
+- [Express-Winston](https://github.com/winstonjs/express-winston)
+
+**Validación**
+
+- [yup](https://github.com/jquense/yup)
+- [Joi](https://github.com/sideway/joi)
+- [zod](https://github.com/colinhacks/zod)
+
+_Validation Pipe de NestJS_
+
+Valida automáticamente los datos entrantes de la aplicación seg´n estén definidos los DTOs a través de reglas definidas por los decoradores de class-validator.
+
+- `@IsString()`
+- `@IsNumber()`
+- `@IsBoolean()`
+- `@IsDate()`
+- `@IsEmail()`
+
+```typescript
+// main.ts
+...
+  app.useGlobalPipes(new ValidationPipe());
+...
+```
+
+- **Pruebas unitarias:** Nos permite validar módulos y funciones de manera independiente de la aplicación.
+- **Pruebas de integración:** Prueba de integración de módulos y funciones que se integran en la aplicación.
+- **Pruebas de punto a punto:** Abarca el flujo completo de la aplicación, desde la entrada de datos hasta la salida de la respuesta.
+
+> [!NOTE]
+> ¿Cobertura mínima de 80%?
