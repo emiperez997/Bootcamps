@@ -31,8 +31,8 @@
   - [ x ] Auth y Seguridad - Parte 2
 - [ x ] **Módulo 9:** Manejo de errores, validación de datos y unit testing
   - [ x ] Manejo de Errores, Validación de Datos y Unit Testing
-- [ ] **Módulo 10:** Conceptos avanzados de bases de datos
-  - [ ] Conceptos Avanzados de Bases de Datos
+- [ x ] **Módulo 10:** Conceptos avanzados de bases de datos
+  - [ x ] Conceptos Avanzados de Bases de Datos
 - [ ] **Módulo 11:** Sockets y comunicación en tiempo real
   - [ ] Sockets y Comunicación en Tiempo Real
 - [ ] **Módulo 12:** Webhooks y eventos
