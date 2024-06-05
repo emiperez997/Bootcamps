@@ -4,7 +4,7 @@
 
 - **Fecha de inicio:** 03/04/2024
 - **Plataforma:** Código Facilito
-- **Fecha de finalización (estimada):** 31/05/2024
+- **Fecha de finalización (estimada):** 14/06/2024
 
 ## Progreso
 
