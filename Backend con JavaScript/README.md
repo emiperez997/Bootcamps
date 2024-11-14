@@ -26,17 +26,17 @@
 - [ x ] **Módulo 7:** Bases de datos no relacionales
   - [ x ] Bases de Datos No Relacionales - Parte 1
   - [ x ] Bases de Datos No Relacionales - Parte 2
-- [ ] **Módulo 8:** Auth y seguridad
+- [ x ] **Módulo 8:** Auth y seguridad
   - [ x ] Auth y Seguridad - Parte 1
   - [ x ] Auth y Seguridad - Parte 2
 - [ x ] **Módulo 9:** Manejo de errores, validación de datos y unit testing
   - [ x ] Manejo de Errores, Validación de Datos y Unit Testing
 - [ x ] **Módulo 10:** Conceptos avanzados de bases de datos
   - [ x ] Conceptos Avanzados de Bases de Datos
-- [ ] **Módulo 11:** Sockets y comunicación en tiempo real
-  - [ ] Sockets y Comunicación en Tiempo Real
-- [ ] **Módulo 12:** Webhooks y eventos
-  - [ ] Webhooks y eventos
+- [ x ] **Módulo 11:** Sockets y comunicación en tiempo real
+  - [ x ] Sockets y Comunicación en Tiempo Real
+- [ x ] **Módulo 12:** Webhooks y eventos
+  - [ x ] Webhooks y eventos
 - [ ] **Módulo 13:** Cache y performance en el backend
   - [ ] Caché y Performance
 - [ ] **Módulo 14:** Documentación y Comunicación
