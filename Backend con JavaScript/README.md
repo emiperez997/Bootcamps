@@ -37,12 +37,12 @@
   - [ x ] Sockets y Comunicación en Tiempo Real
 - [ x ] **Módulo 12:** Webhooks y eventos
   - [ x ] Webhooks y eventos
-- [ ] **Módulo 13:** Cache y performance en el backend
-  - [ ] Caché y Performance
-- [ ] **Módulo 14:** Documentación y Comunicación
-  - [ ] Documentación y Comunicación
+- [ x ] **Módulo 13:** Cache y performance en el backend
+  - [ x ] Caché y Performance
 - [ ] **Módulo 15:** Deploy de APIs, Hosting y soluciones serverless
   - [ ] Depspliegue de APIs, Hosting y Serverless
+- [ ] **Módulo 14:** Documentación y Comunicación
+  - [ ] Documentación y Comunicación
 
 ## Trabajo práctico Final
 
