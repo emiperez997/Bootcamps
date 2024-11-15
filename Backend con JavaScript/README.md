@@ -39,8 +39,8 @@
   - [ x ] Webhooks y eventos
 - [ x ] **Módulo 13:** Cache y performance en el backend
   - [ x ] Caché y Performance
-- [ ] **Módulo 14:** Documentación y Comunicación
-  - [ ] Documentación y Comunicación
+- [ x ] **Módulo 14:** Documentación y Comunicación
+  - [ x ] Documentación y Comunicación
 - [ ] **Módulo 15:** Deploy de APIs, Hosting y soluciones serverless
   - [ ] Depspliegue de APIs, Hosting y Serverless
 
